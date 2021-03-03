@@ -24,3 +24,24 @@ const reformat = function(input) {
 
 // Example 3
 // takes an array of binary digits for a number and returns the set of digits for the next number
+// program to convert decimal to binary
+const next_binary_number = function(input) {
+    if (Array.isArray(input)) {
+        const array = input;
+        for (var value of array) {
+            if (value !== 0 && value !== 1) {
+                return "There are unexpected digits in this array";
+            }
+        }
+
+        // parse intiger as a base two number. Returns as a decimal
+        const bNumber = parseInt(array.join(''), 2);
+        
+        const nextNumber = bNumber + 1;
+        const bNextNumber = nextNumber.toString(2);
+        const aBNextNumber = Array.from(bNextNumber);
+        return aBNextNumber;
+    } else {
+        return "This is not an array";
+    }
+}
